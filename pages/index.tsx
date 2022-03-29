@@ -1,16 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Base } from "@components/templates";
 import { Container } from "@components/atomic";
-import { dialog } from "electron";
+import Link from "next/link";
 
-export const Home = () => {
+export default () => {
   return (
     <Base>
       <Container>
         Home
         <br />
-        <button className="dialog-btn">Click</button>
+        <Link href="/about">About</Link>
       </Container>
     </Base>
   );

@@ -1,5 +1,5 @@
-import { app, BrowserWindow, dialog } from "electron";
-function createWindow() {
+const { app, BrowserWindow, dialog } = require("electron");
+const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -7,6 +7,6 @@ function createWindow() {
       nodeIntegration: true,
     },
   });
-  win.loadFile("build/index.html");
-}
+  win.loadURL("http://localhost:3000");
+};
 app.on("ready", createWindow);

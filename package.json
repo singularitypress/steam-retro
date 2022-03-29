@@ -1,0 +1,59 @@
+{
+  "name": "steam-retro",
+  "version": "1.0.0",
+  "description": "A retro game manager for Steam",
+  "main": "build/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "html:gen": "ts-node src/generate-html.tsx",
+    "build": "ts-node src/generate-html.tsx && webpack --mode=production && webpack --config=webpack.client.js --mode=production && electron .",
+    "dev:electron": "nodemon --ext \"ts,tsx,json\" --watch src/electron.ts --exec webpack --mode=development --exec npx electron .",
+    "dev:client": "nodemon --ext \"ts,tsx,json,scss\" --watch src/client --exec webpack --config=webpack.client.js --mode=development",
+    "dev": "concurrently \"nodemon --ext \"ts,tsx,json\" --watch src/generate-html.tsx --exec  npm run html:gen\" \"npm run dev:electron\" \"npm run dev:client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/singularitypress/steam-retro.git"
+  },
+  "author": "Jay Pandya",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/singularitypress/steam-retro/issues"
+  },
+  "homepage": "https://github.com/singularitypress/steam-retro#readme",
+  "dependencies": {
+    "electron": "^17.1.0",
+    "next": "^12.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.0",
+    "@tailwindcss/typography": "^0.5.2",
+    "@types/electron": "^1.6.10",
+    "@types/node": "^17.0.23",
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.13",
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "@typescript-eslint/parser": "^5.13.0",
+    "autoprefixer": "^10.4.4",
+    "concurrently": "^7.0.0",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.10.0",
+    "eslint-plugin-react": "^7.29.3",
+    "mini-css-extract-plugin": "^2.6.0",
+    "nodemon": "^2.0.15",
+    "postcss": "^8.4.12",
+    "postcss-loader": "^6.2.1",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0",
+    "swc-loader": "^0.1.15",
+    "tailwindcss": "^3.0.23",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
